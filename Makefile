@@ -12,7 +12,7 @@ LIBRARY = $(DIRECTORY)/library
 PUSH_SWAP_A = $(LIBRARY)/push_swap.a
 LIBFT_A = $(LIBRARY)/libft.a
 
-CC = cc -Wall -Wextra -Werror
+CC = cc -Wall -Wextra -Werror -g
 
 all: $(NAME)
 
@@ -20,10 +20,10 @@ $(NAME): $(PUSH_SWAP_A) $(LIBFT_A)
 	@$(CC) $^ -o $@
 	
 $(PUSH_SWAP_A): $(PUSH_SWAP)
-	@$(MAKE) -C $< -s
+	@$(MAKE) -C $(PUSH_SWAP) -s
 
 $(LIBFT_A): $(LIBFT)
-	@$(MAKE) -C $< -s
+	@$(MAKE) -C $(LIBFT) -s
 	
 clean:
 	@$(MAKE) -C $(PUSH_SWAP) fclean -s

@@ -6,58 +6,42 @@
 /*   By: jaemyu <jaemyu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 16:39:04 by jaemyu            #+#    #+#             */
-/*   Updated: 2025/08/26 15:58:38 by jaemyu           ###   ########.fr       */
+/*   Updated: 2025/08/26 22:49:02 by jaemyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	convert(int ac, char **av)
+static void	add_node(t_stack *stack, t_node *new, char **splited)
 {
-	int		i;
-	int		j;
-	t_node	*new;
-	t_stack stack;
-	char	**splited;
+	t_node	*cur;
 
-	stack.head = NULL;
-	stack.tail = NULL;
-	stack.size = 0;
-	i = 0;
-	while (++i < ac)
+	cur = stack->head;
+	if (cur)
 	{
-		splited = ps_split(av[i], ' ', &stack);
-		if (!splited)
-			print_error(1, &stack);
-		j = 0;
-		while (splited[j])
+		while (cur)
 		{
-			new = node_make(splited[j++], &stack);
-			add_node(&stack, new, splited);
+			if (cur->value > new->value)
+				cur->rank += 1;
+			else if (cur->value < new->value)
+				new->rank += 1;
+			else
+			{
+				free_split(splited);
+				print_error(1, stack);
+			}
+			if (!cur->next)
+				break;
+			cur = cur->next;
 		}
-		free_split(splited);
+		cur->next = new;
+		new->prev = cur;
 	}
-	verification(&stack);
-	sort(&stack);
+	else
+		stack->head = new;
 }
 
-void	verification(t_stack *stack)
-{
-	t_node	*current;
-
-	if (!stack || !stack->head)
-		return;
-	current = stack->head;
-	while (current->next)
-	{
-		if (current->value > current->next->value)
-			return ;
-		current = current->next;
-	}
-	print_error(1, stack);
-}
-
-t_node	*node_make(char *splited, t_stack *stack)
+static t_node	*node_make(char *splited, t_stack *stack)
 {
 	t_node	*new;
 
@@ -65,4 +49,31 @@ t_node	*node_make(char *splited, t_stack *stack)
 	if (!new)
 		print_error(1, stack);
 	return (new);
+}
+
+int	convert(int ac, char **av, t_stack *stack)
+{
+	int		i;
+	int		j;
+	int		size;
+	t_node	*new;
+	char	**splited;
+
+	i = 0;
+	size = 0;
+	while (++i < ac)
+	{
+		splited = ps_split(av[i], ' ', stack);
+		if (!splited)
+			print_error(1, stack);
+		j = 0;
+		while (splited[j] && ++size)
+		{
+			new = node_make(splited[j++], stack);
+			add_node(stack, new, splited);
+		}
+		free_split(splited);
+	}
+	stack->tail = new;
+	return (size);
 }

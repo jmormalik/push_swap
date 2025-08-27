@@ -1,11 +1,11 @@
-CC = cc -c -Wall -Wextra -Werror
+CC = cc -c -Wall -Wextra -Werror -g
 NAME = push_swap.a
 
 INC = -I ../../includes
 LIB = ../../library
 
 SRCS = \
-main.c  ps_split.c  push.c  rotate.c  swap.c  utils.c convert.c sort.c \
+main.c  ps_split.c  push.c  r_rotate.c rotate.c  swap.c  utils.c convert.c sort.c short_sort.c \
 
 
 OBJS = $(SRCS:.c=.o)

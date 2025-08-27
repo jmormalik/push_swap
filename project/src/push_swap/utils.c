@@ -26,7 +26,6 @@ void	free_stack(t_stack *stack)
 		head = head->next;
 		free(tmp);
 	}
-	// free(stack);
 }
 
 int		ps_atoi(const char *nptr, t_stack *stack)

@@ -6,7 +6,7 @@
 /*   By: jaemyu <jaemyu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 22:50:10 by jaemyu            #+#    #+#             */
-/*   Updated: 2025/08/22 21:17:59 by jaemyu           ###   ########.fr       */
+/*   Updated: 2025/08/27 17:08:26 by jaemyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static size_t	ft_word_count(const char *s, char c, t_stack *stack)
 		while (*s == c && *s)
 			s++;
 		if (*s != '-' && *s != '+' && (*s < '0' || *s > '9'))
+			print_error(1, stack);
+		if ((*s == '-' || *s == '+') && (!ft_isdigit(*(s + 1))))
 			print_error(1, stack);
 		if (*s)
 		{

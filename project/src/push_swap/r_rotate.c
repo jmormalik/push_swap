@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   r_rotate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaemyu <jaemyu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,39 +12,38 @@
 
 #include "push_swap.h"
 
-static void	rotate(t_stack *stack)
+static void	reverse_rotate(t_stack *stack)
 {
 	t_node	*first;
-	t_node	*second;
 	t_node	*last;
+	t_node	*last_prev;
 
-	if (! stack->head || ! stack->head->next)
-		return ;
 	first = stack->head;
-	second = first->next;
 	last = stack->tail;
+	last_prev = last->prev;
 	last->next = first;
 	first->prev = last;
-	second->prev = NULL;
-	first->next = NULL;
-	stack->head = second;
-	stack->tail = first;
-}
-void	rr(t_stack *a, t_stack *b)
-{
-	rotate(a);
-	rotate(b);
-	ft_printf("rr\n");
+	last_prev->next = NULL;
+	last->prev = NULL;
+	stack->head = last;
+	stack->tail = last_prev;
 }
 
-void	ra(t_stack *a)
+void	rrr(t_stack *a, t_stack *b)
 {
-	rotate(a);
-	ft_printf("ra\n");
+	reverse_rotate(a);
+	reverse_rotate(b);
+	ft_printf("rrr\n");
 }
 
-void	rb(t_stack *b)
+void	rra(t_stack *a)
 {
-	rotate(b);
-	ft_printf("rb\n");
+	reverse_rotate(a);
+	ft_printf("rra\n");
+}
+
+void	rrb(t_stack *b)
+{
+	reverse_rotate(b);
+	ft_printf("rrb\n");
 }
