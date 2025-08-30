@@ -6,11 +6,11 @@
 /*   By: jaemyu <jaemyu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 16:39:04 by jaemyu            #+#    #+#             */
-/*   Updated: 2025/08/29 16:12:16 by jaemyu           ###   ########.fr       */
+/*   Updated: 2025/08/29 21:55:10 by jaemyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 static void	add_node(t_stack *stack, t_node *new, char **splited)
 {

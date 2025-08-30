@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 static void	rotate(t_stack *stack)
 {
@@ -35,17 +35,14 @@ void	rr(t_stack *a, t_stack *b)
 {
 	rotate(a);
 	rotate(b);
-	ft_printf("rr\n");
 }
 
 void	ra(t_stack *a)
 {
 	rotate(a);
-	ft_printf("ra\n");
 }
 
 void	rb(t_stack *b)
 {
 	rotate(b);
-	ft_printf("rb\n");
 }

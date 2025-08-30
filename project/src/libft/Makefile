@@ -55,6 +55,8 @@ print_nbr.c \
 print_ptr.c \
 print_str.c \
 print_unbr.c \
+get_next_line.c \
+get_next_line_utils.c \
 
 OBJS = $(SRCS:.c=.o)
 

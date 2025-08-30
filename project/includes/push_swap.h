@@ -6,7 +6,7 @@
 /*   By: jaemyu <jaemyu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 21:17:49 by jaemyu            #+#    #+#             */
-/*   Updated: 2025/08/27 16:04:09 by jaemyu           ###   ########.fr       */
+/*   Updated: 2025/08/29 17:25:18 by jaemyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	sort_3(t_stack *stack_a);
 void	sort_4(t_stack *stack_a, t_stack *stack_b);
 void	sort_5(t_stack *stack_a, t_stack *stack_b);
 
-// int		verification(t_stack *stack);
+void	free_list(t_stack *stack);
 
 #endif
-

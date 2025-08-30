@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	free_stack(t_stack *stack)
 {
@@ -56,7 +56,7 @@ int	ps_atoi(const char *nptr, t_stack *stack)
 void	print_error(int i, t_stack *stack)
 {
 	if (i > 0)
-		ft_putstr_fd("Error", 2);
+		ft_putstr_fd("Error\n", 2);
 	free_stack(stack);
 	exit(1);
 }

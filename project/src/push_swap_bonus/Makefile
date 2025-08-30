@@ -1,5 +1,5 @@
 CC = cc -c -Wall -Wextra -Werror -g
-NAME = push_swap.a
+NAME = push_swap_bonus.a
 
 INC = -I ../../includes
 LIB = ../../library

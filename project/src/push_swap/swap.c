@@ -22,9 +22,15 @@ static void	swap(t_stack *stack)
 	first = stack->head;
 	second = first->next;
 	if (second->next)
+	{
 		second->next->prev = first;
+		first->next = second->next;
+	}
 	else
+	{
 		stack->tail = first;
+		first->next = NULL;
+	}
 	second->next = first;
 	first->prev = second;
 	second->prev = NULL;

@@ -6,7 +6,7 @@
 /*   By: jaemyu <jaemyu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 21:17:02 by jaemyu            #+#    #+#             */
-/*   Updated: 2025/08/27 00:35:55 by jaemyu           ###   ########.fr       */
+/*   Updated: 2025/08/30 15:38:38 by jaemyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,15 @@ static int	verification(t_stack *stack)
 			return (0);
 		current = current->next;
 	}
+	print_error(0, stack);
 	return (1);
 }
 
 int	main(int ac, char **av)
 {
 	int		size;
-	t_stack stack_a;
-	t_stack stack_b;
+	t_stack	stack_a;
+	t_stack	stack_b;
 
 	stack_a.head = NULL;
 	stack_a.tail = NULL;
@@ -51,4 +52,5 @@ int	main(int ac, char **av)
 		sort_5(&stack_a, &stack_b);
 	else
 		sort(&stack_a, &stack_b, size);
+	free_list(&stack_a);
 }
