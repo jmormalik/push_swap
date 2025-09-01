@@ -90,7 +90,6 @@ static void	checker(t_stack *stack_a, t_stack *stack_b)
 
 int	main(int ac, char **av)
 {
-	int			size;
 	t_stack		stack_a;
 	t_stack		stack_b;
 
@@ -100,7 +99,7 @@ int	main(int ac, char **av)
 	stack_a.tail = NULL;
 	stack_b.head = NULL;
 	stack_b.tail = NULL;
-	size = convert(ac, av, &stack_a);
+	convert(ac, av, &stack_a);
 	if (verification(&stack_a))
 		print_error(0, &stack_a);
 	checker(&stack_a, &stack_b);

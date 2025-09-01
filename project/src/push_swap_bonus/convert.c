@@ -51,23 +51,21 @@ static t_node	*node_make(char *splited, t_stack *stack)
 	return (new);
 }
 
-int	convert(int ac, char **av, t_stack *stack)
+void	convert(int ac, char **av, t_stack *stack)
 {
 	int		i;
 	int		j;
-	int		size;
 	t_node	*new;
 	char	**splited;
 
 	i = 0;
-	size = 0;
 	while (++i < ac)
 	{
 		splited = ps_split(av[i], ' ', stack);
 		if (!splited)
 			print_error(1, stack);
 		j = 0;
-		while (splited[j] && ++size)
+		while (splited[j])
 		{
 			new = node_make(splited[j++], stack);
 			add_node(stack, new, splited);
@@ -75,5 +73,4 @@ int	convert(int ac, char **av, t_stack *stack)
 		free_split(splited);
 	}
 	stack->tail = new;
-	return (size);
 }

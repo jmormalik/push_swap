@@ -18,6 +18,8 @@ static void	reverse_rotate(t_stack *stack)
 	t_node	*last;
 	t_node	*last_prev;
 
+    if (! stack->head || ! stack->head->next)
+        return ;    
 	first = stack->head;
 	last = stack->tail;
 	last_prev = last->prev;

@@ -52,7 +52,7 @@ void	free_stack(t_stack *stack);
 void	free_split(char **splited);
 t_node	*new_node(int new_data);
 
-int		convert(int ac, char **av, t_stack *stack);
+void    convert(int ac, char **av, t_stack *stack);
 
 void	sort(t_stack *stack_a, t_stack *stack_b, int size);
 void	sort_2(t_stack *stack_a);
